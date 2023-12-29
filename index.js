@@ -87,7 +87,7 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-
+// net total amount of profit/losses over entire period
 var total = 0;
 
 for (let i = 0; i < finances.length; i++) {
@@ -97,6 +97,22 @@ for (let i = 0; i < finances.length; i++) {
 }
 
 
+//average of the changes in profit/losses over the entire period
+let changes = [];
+for (let i = 1; i < finances.length; i++) {
+  let change = finances[i][1] - finances[i - 1][1];
+  changes.push(change);
+} 
+
+let avgChange = 0;
+for (let i = 0; i < changes.length; i++) {
+  avgChange += changes[i];
+}
+
+const average = avgChange / (finances.length - 1);
+
+
 
 console.log("Total Months: " + finances.length);
 console.log("Total: £" + total);
+console.log("Average Change: " + average.toFixed(2));
