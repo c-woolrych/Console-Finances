@@ -111,8 +111,26 @@ for (let i = 0; i < changes.length; i++) {
 
 const average = avgChange / (finances.length - 1);
 
+//greatest increase in profits/losses
+let increase = 0;
+let increaseMonth = "";
+let decrease = 0;
+let decreaseMonth = "";
+
+for (let i = 1; i < finances.length; i++) {
+  let avgChange = finances[i][1] - finances[i - 1][1];
+  if (increase < avgChange) {
+    increase = avgChange;
+    increaseMonth = finances[i][0];
+  }
+  else (decrease > avgChange[i]) 
+    decrease = avgChange;
+    decreaseMonth = finances[i + 1];
+  }
+
 
 
 console.log("Total Months: " + finances.length);
 console.log("Total: £" + total);
 console.log("Average Change: " + average.toFixed(2));
+console.log("Greatest Increase in Profit/Losses: "+ increaseMonth + "($" + increase + ")");
