@@ -123,11 +123,19 @@ for (let i = 1; i < finances.length; i++) {
     increase = avgChange;
     increaseMonth = finances[i][0];
   }
-  else (decrease < avgChange) 
-    decrease = avgChange;
-    decreaseMonth = finances[i][0];
-  }
+}
+  // else (decrease < avgChange) 
+  //   decrease = avgChange;
+  //   decreaseMonth = finances[i][0];
+  // }
 
+  for (let i = 1; i < finances.length; i++) {
+    let avgChange = finances[i][1] - finances[i - 1][1];
+    if (decrease > avgChange) {
+      decrease = avgChange;
+      decreaseMonth = finances[i][0];
+    }
+  }
 
 
 console.log("Total Months: " + finances.length);
