@@ -123,9 +123,9 @@ for (let i = 1; i < finances.length; i++) {
     increase = avgChange;
     increaseMonth = finances[i][0];
   }
-  else (decrease > avgChange[i]) 
+  else (decrease < avgChange) 
     decrease = avgChange;
-    decreaseMonth = finances[i + 1];
+    decreaseMonth = finances[i][0];
   }
 
 
@@ -134,3 +134,4 @@ console.log("Total Months: " + finances.length);
 console.log("Total: £" + total);
 console.log("Average Change: " + average.toFixed(2));
 console.log("Greatest Increase in Profit/Losses: "+ increaseMonth + "($" + increase + ")");
+console.log("Greatest Decrease in Profits/Losses: " + decreaseMonth + "($" + decrease + ")");
