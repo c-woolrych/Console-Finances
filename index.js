@@ -87,6 +87,10 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+console.log("Financial Analysis")
+console.log("Total Months: " + finances.length);
+
+
 // net total amount of profit/losses over entire period
 var total = 0;
 
@@ -96,6 +100,7 @@ for (let i = 0; i < finances.length; i++) {
   total += arr[1];
 }
 
+console.log("Total: £" + total);
 
 //average of the changes in profit/losses over the entire period
 let changes = [];
@@ -111,6 +116,8 @@ for (let i = 0; i < changes.length; i++) {
 
 const average = avgChange / (finances.length - 1);
 
+console.log("Average Change: " + average.toFixed(2));
+
 //greatest increase in profits/losses
 let increase = 0;
 let increaseMonth = "";
@@ -124,10 +131,8 @@ for (let i = 1; i < finances.length; i++) {
     increaseMonth = finances[i][0];
   }
 }
-  // else (decrease < avgChange) 
-  //   decrease = avgChange;
-  //   decreaseMonth = finances[i][0];
-  // }
+
+console.log("Greatest Increase in Profit/Losses: "+ increaseMonth + "($" + increase + ")");
 
   for (let i = 1; i < finances.length; i++) {
     let avgChange = finances[i][1] - finances[i - 1][1];
@@ -137,9 +142,4 @@ for (let i = 1; i < finances.length; i++) {
     }
   }
 
-
-console.log("Total Months: " + finances.length);
-console.log("Total: £" + total);
-console.log("Average Change: " + average.toFixed(2));
-console.log("Greatest Increase in Profit/Losses: "+ increaseMonth + "($" + increase + ")");
 console.log("Greatest Decrease in Profits/Losses: " + decreaseMonth + "($" + decrease + ")");
